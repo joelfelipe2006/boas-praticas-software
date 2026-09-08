@@ -1,24 +1,30 @@
-# boas-praticas-software
+## Questão final
 
-Atividade prática da disciplina **Manutenção e Configuração de Software** — SENAI FATESG.
+**1. Qual era o principal problema do código original?**
+Os nomes de variáveis não eram descritivos (n, a, b, c), o que dificultava entender o que
+cada valor representava. Além disso, toda a lógica ficava concentrada no método main, sem
+nenhuma separação de responsabilidades, e não havia padronização nem qualquer forma de
+documentação do código.
 
-## Contexto
+**2. Quais melhorias você realizou?**
+Renomeei as variáveis para nomes que expressam seu significado (nomeAluno,
+notaPrimeiroBimestre, notaSegundoBimestre, media, situacaoAluno); dividi o código em
+métodos com responsabilidades específicas (calcularMedia, verificarSituacaoAluno,
+apresentarResultado); extraí a nota mínima de aprovação para uma constante
+(MEDIA_MINIMA_APROVACAO), eliminando o "número mágico" 6; renomeei a classe de Sistema para
+AvaliacaoAluno, deixando claro o seu propósito; e padronizei a nomenclatura (PascalCase para a
+classe, camelCase para métodos e variáveis) e a indentação em todo o arquivo.
 
-Este repositório contém um pequeno sistema recebido de outro programador, funcional porém com
-problemas de organização e legibilidade. O objetivo da atividade é analisar, melhorar e organizar
-o código aplicando boas práticas (nomenclatura clara, modularização, código auto comentado e
-padronização), registrando cada etapa por meio do Git.
+**3. Como a modularização facilitou a organização do código?**
+Cada método passou a ter uma única responsabilidade — calcular, verificar a situação e exibir o
+resultado —, o que deixou o fluxo do main muito mais curto e claro. Isso também facilita testar,
+reutilizar e alterar cada parte isoladamente, sem risco de afetar as demais, e faz o código se
+auto-explicar pelos nomes dos métodos, reduzindo a necessidade de comentários.
 
-## Estrutura
-
-- `src/Sistema.java` — código original, recebido para refatoração (commit inicial na `main`).
-- `src/AvaliacaoAluno.java` — versão refatorada, desenvolvida na branch `melhoria-boas-praticas`
-  e incorporada à `main` após revisão via Pull Request.
-
-## Como executar
-
-```bash
-cd src
-javac AvaliacaoAluno.java
-java AvaliacaoAluno
-```
+**4. Como o Git ajudou a controlar as alterações realizadas no sistema?**
+O Git permitiu registrar o código original em um commit próprio antes de qualquer alteração,
+preservando um ponto de retorno seguro. A criação da branch melhoria-boas-praticas isolou as
+mudanças do código estável na main, permitindo experimentar sem risco. O histórico de commits
+documenta, passo a passo, o que foi alterado e por quê, e o Pull Request permitiu revisar todas as
+diferenças antes do merge, deixando claro exatamente o que mudou entre a versão original e a
+versão refatorada.
